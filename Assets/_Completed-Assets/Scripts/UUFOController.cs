@@ -26,11 +26,36 @@ public class UUFOController : MonoBehaviour {
 		rb2d.AddForce (movement * speed);
 
 	}
-	void moveUP()
-	{
-		float vertical = Input.GetAxis("Vertical");
-		Vector2 moveVertical = new Vector2 (0, moveVertical);
+	
+		void moveUP()
+		{
+			float vertical = Input.GetAxis ("Vertical");
+			Vector2 moveVertical = new Vector2 (0, moveVertical);
+	
+			rb2d.AddForce (moveVertical * speed);
+		}
 
-		rb2d.AddForce (moveVertical* speed)
+		void moveDOWN()
+		{
+			float vertical = Input.GetAxis ("Vertical");
+			Vector2 moveVertical = new Vector2 (0, moveVertical);
+		
+			rb2d.AddForce (moveVertical * speed);
+		}
+	
+		void moveLEFT()
+		{
+			float horizontal = Input.GetAxis ("Horizontal");
+			Vector2 moveHorizontal = new Vector2 (moveHorizontal, 0);
+
+			rb2d.AddForce (moveHorizontal * speed);
+		}
+
+		void moveRIGHT()
+		{
+			float horizontal = Input.GetAxis ("Horizontal");
+			Vector2 moveHorizontal = new Vector2 (moveHorizontal, 0);
+	
+			rb2d.AddForce (moveHorizontal * speed);
+		}
 	}
-}
