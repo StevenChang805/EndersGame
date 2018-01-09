@@ -25,7 +25,7 @@ public class UFOController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.W)
 		{
 			moveUP();
-			moveLEFT().enabled = false;
+			moveLEFT().enabled = !moveLEFT().enabled;
 			moveDOWN().enabled = false;
 			moveRIGHT().enabled = false;
 		}

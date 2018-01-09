@@ -16,15 +16,23 @@ public class UUFOController : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
-
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
-
-		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
-
-		rb2d.AddForce (movement * speed);
-
+	void Update ()
+	{
+		if (Input.GetKeyDown (KeyCode.UpArrow))
+		{
+			moveUP();
+			moveDOWN().enabled = false;
+			moveLEFT().enabled = false;
+			moveRIGHT().enabled = false;
+		}
+		
+		if (Input.GetKeyDown (KeyCode.DownArrow))
+		{
+			moveDown();
+			moveDOWN().enabled = !moveDOWN().enabled;
+			moveLEFT().enabled = !moveLEFT().enabled;
+			moveRIGHT().enabled = !moveRIGHT().enabled;
+		}
 	}
 	
 		void moveUP()
