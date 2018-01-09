@@ -20,19 +20,68 @@ public class UFOController : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
-
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
-
-		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
-
-		rb2d.AddForce (movement * speed);
-
-		if (health == 0) {
-			Destroy (gameObject);
+	void Update () 
+	{
+		if (Input.GetKeyDown (KeyCode.W)
+		{
+			moveUP();
+			moveLEFT().enabled = false;
+			moveDOWN().enabled = false;
+			moveRIGHT().enabled = false;
 		}
+		if (Input.GetKeyDown (KeyCode.A)
+		{
+			moveLEFT();
+			moveUP().enabled = false;
+			moveDOWN().enabled = false;
+			moveRIGHT().enabled = false;
+		}
+		if (Input.GetKeyDown (KeyCode.S)
+		{
+			moveDOWN();
+			moveUP().enabled = false;
+			moveLEFT().enabled = false;
+			moveRIGHT().enabled = false;
+		}
+		if (Input.GetKeyDown (KeyCode.D)
+		{
+			moveRIGHT();
+			moveUP().enabled = false;
+			moveDOWN().enabled = false;
+			moveLEFT().enabled = false;
+		}
+	}
+	void moveUP()
+	{
+		float vertical = Input.GetAxis ("Vertical");
+		//0 makes sure it does not move along x-axis
+		Vector2 moveVertical = new Vector2 (0, vertical);
 
+		rb2d.AddForce (moveVertical * speed);
+	}
+
+	void moveDOWN()
+	{
+		float vertical = Input.GetAxis ("Vertical");
+		Vector2 moveVertical = new Vector2 (0, vertical);
+
+		rb2d.AddForce (moveVertical * speed);
+	}
+
+	void moveRIGHT()
+	{
+		float horizontal = Input.GetAxis ("Horizontal");
+		Vector2 moveHorizontal = new Vector2 (horizontal, 0);
+
+		rb2d.AddForce (moveHorizontal * speed);
+	}
+
+	void moveLEFT()
+	{
+		float horizontal = Input.GetAxis ("Horizontal");
+		Vector2 moveHorizontal = new Vector2 (horizontal, 0);
+
+		rb2d.AddForce (moveHorizontal * speed);
 	}
 
 	void Decrement() {

@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour {
 	public UFOController UFOC;
 	public Collider collider_bullet;
 
+	protected GameObject instantiatedObj;
+
 	public int damage = 20;
 
 	// Use this for initialization
@@ -24,11 +26,14 @@ public class Bullet : MonoBehaviour {
 	}
 	void DestroyBullet() 
 	{
-		DestroyObject (this);
+		instantiatedObj = (GameObject); 		
+		Destroy(instantiatedObj);
 	}
 
-	void OnCollisionEnter2D(Collision2D coll) {
+	void OnCollisionEnter2D(Collision2D coll) 
+	{
 		if (coll.gameObject.tag == "Player")
 			coll.gameObject.SendMessage ("Decrement");
+			DestroyBullet ();
 	}
 }

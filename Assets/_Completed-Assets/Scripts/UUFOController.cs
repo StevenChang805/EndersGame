@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class UUFOController : MonoBehaviour {
 
-	public class Health
-	{
-		public int health;
-
-		public Health(int hp)
-		{
-			health = hp;
-		}
-	}
-
-	public Health myHealth = new Health (100);
-
+		
 	private float speed = 10;
 	private Rigidbody2D rb2d;
 
@@ -36,5 +25,12 @@ public class UUFOController : MonoBehaviour {
 
 		rb2d.AddForce (movement * speed);
 
+	}
+	void moveUP()
+	{
+		float vertical = Input.GetAxis("Vertical");
+		Vector2 moveVertical = new Vector2 (0, moveVertical);
+
+		rb2d.AddForce (moveVertical* speed)
 	}
 }
