@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class UFOController : MonoBehaviour {
 
-	public static UFOController Instance;
+	public UFOController Instance;
 
 	public int health = 100;
 	public Collider2D collider_ufo;
 
 	private float speed = 10;
 	private Rigidbody2D rb2d;
-
-	void Awake() 
-	{
-		Instance = this;
-	}
 
 	// Use this for initialization
 	void Start () {
@@ -34,13 +29,13 @@ public class UFOController : MonoBehaviour {
 
 		rb2d.AddForce (movement * speed);
 
+		if (health == 0) {
+			Destroy (gameObject);
+		}
+
 	}
 
-	void onColliderTrigger (Collision col)
-	{
-		if (col.gameObject.tag == "Bullet") 
-		{
-			health -= 20;
-		}
+	void Decrement() {
+		health -= 20;
 	}
 }

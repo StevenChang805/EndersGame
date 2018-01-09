@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
 	public GameObject UFO;
+	public Collision col1;
+	public UFOController UFOC;
 	public Collider collider_bullet;
 
 	public int damage = 20;
@@ -16,19 +18,17 @@ public class Bullet : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+
 	}
 	void DestroyBullet() 
 	{
 		DestroyObject (this);
 	}
 
-	void OnCollisionEnter (Collision col)
-	{
-		if (col.gameObject.tag == "Player") 
-		{
-			UFOController.Instance.health -= damage;
-			DestroyBullet ();
-		}
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag == "Player")
+			coll.gameObject.SendMessage ("Decrement");
 	}
 }
