@@ -22,28 +22,28 @@ public class UFOController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.W)
+		if (Input.GetKeyDown (KeyCode.W))
 		{
 			moveUP();
 			moveLEFT().enabled = !moveLEFT().enabled;
-			moveDOWN().enabled = false;
-			moveRIGHT().enabled = false;
+			moveDOWN().enabled = !moveDOWN().enabled;
+			moveRIGHT().enabled = !moveRIGHT().enabled;
 		}
-		if (Input.GetKeyDown (KeyCode.A)
+		if (Input.GetKeyDown (KeyCode.A))
 		{
 			moveLEFT();
 			moveUP().enabled = false;
 			moveDOWN().enabled = false;
 			moveRIGHT().enabled = false;
 		}
-		if (Input.GetKeyDown (KeyCode.S)
+		if (Input.GetKeyDown (KeyCode.S))
 		{
 			moveDOWN();
 			moveUP().enabled = false;
 			moveLEFT().enabled = false;
 			moveRIGHT().enabled = false;
 		}
-		if (Input.GetKeyDown (KeyCode.D)
+		if (Input.GetKeyDown (KeyCode.D))
 		{
 			moveRIGHT();
 			moveUP().enabled = false;
