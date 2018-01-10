@@ -21,24 +21,18 @@ public class UUFOController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.UpArrow))
 		{
 			moveUP();
-			moveDOWN().enabled = false;
-			moveLEFT().enabled = false;
-			moveRIGHT().enabled = false;
 		}
 		
 		if (Input.GetKeyDown (KeyCode.DownArrow))
 		{
-			moveDown();
-			moveDOWN().enabled = !moveDOWN().enabled;
-			moveLEFT().enabled = !moveLEFT().enabled;
-			moveRIGHT().enabled = !moveRIGHT().enabled;
+			moveDOWN();
 		}
 	}
 	
 		void moveUP()
 		{
 			float vertical = Input.GetAxis ("Vertical");
-			Vector2 moveVertical = new Vector2 (0, moveVertical);
+			Vector2 moveVertical = new Vector2 (0, vertical);
 	
 			rb2d.AddForce (moveVertical * speed);
 		}
@@ -46,7 +40,7 @@ public class UUFOController : MonoBehaviour {
 		void moveDOWN()
 		{
 			float vertical = Input.GetAxis ("Vertical");
-			Vector2 moveVertical = new Vector2 (0, moveVertical);
+			Vector2 moveVertical = new Vector2 (0, vertical);
 		
 			rb2d.AddForce (moveVertical * speed);
 		}
@@ -54,7 +48,7 @@ public class UUFOController : MonoBehaviour {
 		void moveLEFT()
 		{
 			float horizontal = Input.GetAxis ("Horizontal");
-			Vector2 moveHorizontal = new Vector2 (moveHorizontal, 0);
+			Vector2 moveHorizontal = new Vector2 (horizontal, 0);
 
 			rb2d.AddForce (moveHorizontal * speed);
 		}
@@ -62,7 +56,7 @@ public class UUFOController : MonoBehaviour {
 		void moveRIGHT()
 		{
 			float horizontal = Input.GetAxis ("Horizontal");
-			Vector2 moveHorizontal = new Vector2 (moveHorizontal, 0);
+			Vector2 moveHorizontal = new Vector2 (horizontal, 0);
 	
 			rb2d.AddForce (moveHorizontal * speed);
 		}

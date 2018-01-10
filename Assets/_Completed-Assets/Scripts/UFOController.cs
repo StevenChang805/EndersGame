@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class UFOController : MonoBehaviour {
 
-	public UFOController Instance;
-
 	public int health = 100;
 	public Collider2D collider_ufo;
 
@@ -25,32 +23,21 @@ public class UFOController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.W))
 		{
 			moveUP();
-			moveLEFT().enabled = !moveLEFT().enabled;
-			moveDOWN().enabled = !moveDOWN().enabled;
-			moveRIGHT().enabled = !moveRIGHT().enabled;
 		}
 		if (Input.GetKeyDown (KeyCode.A))
 		{
 			moveLEFT();
-			moveUP().enabled = false;
-			moveDOWN().enabled = false;
-			moveRIGHT().enabled = false;
 		}
 		if (Input.GetKeyDown (KeyCode.S))
 		{
 			moveDOWN();
-			moveUP().enabled = false;
-			moveLEFT().enabled = false;
-			moveRIGHT().enabled = false;
 		}
 		if (Input.GetKeyDown (KeyCode.D))
 		{
 			moveRIGHT();
-			moveUP().enabled = false;
-			moveDOWN().enabled = false;
-			moveLEFT().enabled = false;
 		}
 	}
+
 	void moveUP()
 	{
 		float vertical = Input.GetAxis ("Vertical");

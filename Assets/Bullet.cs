@@ -16,18 +16,17 @@ public class Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-
-	}
-	
+		
+	}	
 	// Update is called once per frame
 	void Update () 
 	{
 
 	}
 	void DestroyBullet() 
-	{
-		instantiatedObj = (GameObject); 		
-		Destroy(instantiatedObj);
+	{		
+		Destroy(gameObject
+
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) 
