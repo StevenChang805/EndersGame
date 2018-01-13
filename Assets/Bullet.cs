@@ -23,16 +23,10 @@ public class Bullet : MonoBehaviour {
 	{
 
 	}
-	void DestroyBullet() 
-	{		
-		Destroy(gameObject
-
-	}
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
 		if (coll.gameObject.tag == "Player")
 			coll.gameObject.SendMessage ("Decrement");
-			DestroyBullet ();
 	}
 }
