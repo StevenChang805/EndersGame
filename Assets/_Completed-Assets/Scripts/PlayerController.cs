@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour {
     void Start () 
     {
         rb2d = GetComponent<Rigidbody2D> ();
+        Random rnd = new Random();
+        int x = rnd.next(-12.5, 12.5);
+        int y = rnd.next(-12.5, 12.5);
+        this.transform.position = new Vector2(x, y);
     }
     
     void FixedUpdate() 
