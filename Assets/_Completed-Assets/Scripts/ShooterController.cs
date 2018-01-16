@@ -16,7 +16,7 @@ public class ShooterController : MonoBehaviour {
 		}
 	}
 
-	public Inventory myInventory = new Inventory (20, 50);
+	public Inventory myInventory = new Inventory (1, 50);
 
 	public float speed;
 	public float turnSpeed;
@@ -51,10 +51,13 @@ public class ShooterController : MonoBehaviour {
 			myInventory.bullets--;
 		}
 	}
+
 	void Reload()
 	{
-		if (Input.GetKeyDown (KeyCode.T))
+		if (myInventory.bullets == 0) 
+		{
 			myInventory.bullets++;
+		}
 	}
  
 }
