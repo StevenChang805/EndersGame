@@ -16,6 +16,8 @@ public class ShooterController : MonoBehaviour {
 		}
 	}
 
+	public int health = 70;
+
 	private float speed = 100000;
 	private Rigidbody2D rb2d;
 
@@ -72,9 +74,9 @@ public class ShooterController : MonoBehaviour {
 
 	void Decrement()
 	{
-		myInventory.health--;
+		health -= 20;
 
-		if (myInventory.health == 0) {
+		if (health == 0) {
 			Debug.Log ("Shooter 1 has been destroyed");
 			gameObject.SetActive (false);
 		}
