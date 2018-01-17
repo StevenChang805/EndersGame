@@ -51,21 +51,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\_Completed-Assets\Scripts\Bullet.cs" />
+     <Compile Include="Assets\_Completed-Assets\Scripts\Bullet2.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\CompleteCameraController.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\CompletePlayerController.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\CompleteRotator.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\Randomizer.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\ShooterController.cs" />
+     <Compile Include="Assets\_Completed-Assets\Scripts\ShooterController2.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\UFOController.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\UFODamage.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\UFOMovement.cs" />
      <Compile Include="Assets\_Completed-Assets\Scripts\UUFOController.cs" />
-     <Compile Include="Assets\Bullet.cs" />
-     <Compile Include="Assets\moveRight.cs" />
      <Compile Include="Assets\TutorialInfo\ObjectController.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\TutorialInfo.cs" />
-     <Compile Include="Assets\UFOHealth.cs" />
      <None Include="Assets\TutorialInfo\Fonts\LICENSE.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

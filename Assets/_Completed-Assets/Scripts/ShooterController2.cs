@@ -1,8 +1,8 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooterController : MonoBehaviour {
+public class ShooterController2 : MonoBehaviour {
 
 	public class Inventory
 	{
@@ -49,7 +49,7 @@ public class ShooterController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.T))
 			transform.Rotate (new Vector3 (0, 0, 90));
 	}
-	
+
 
 
 	void Shoot ()
@@ -78,5 +78,5 @@ public class ShooterController : MonoBehaviour {
 			gameObject.SetActive (false);
 		}
 	}
- 
+
 }

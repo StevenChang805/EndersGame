@@ -7,7 +7,7 @@ public class UFOController : MonoBehaviour {
 	public int health = 100;
 	public Collider2D collider_ufo;
 
-	private float speed = 10;
+	private float speed = 100000;
 	private Rigidbody2D rb2d;
 
 	void Start()
@@ -30,7 +30,7 @@ public class UFOController : MonoBehaviour {
 		health -= 20;
 		
 		if (health == 0)
-			Destroy(gameObject);;
+			gameObject.SetActive(false);
 	}
 
 }

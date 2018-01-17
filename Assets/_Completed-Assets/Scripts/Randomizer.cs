@@ -19,11 +19,29 @@ public class Randomizer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (Input.GetKeyDown (KeyCode.Alpha5))
+			Begin ();
+
 		if (Input.GetKeyDown (KeyCode.Space))
 			Randomize ();
 
 		if (Input.GetKeyDown (KeyCode.Escape))
-			nextTurn ();
+			nextTurn1 ();
+		
+		if (Input.GetKeyDown (KeyCode.Tab))
+			nextTurn2 ();
+
+		if (Input.GetKeyDown (KeyCode.Alpha1))
+			colliders1 ();
+
+		if (Input.GetKeyDown (KeyCode.Alpha2))
+			shooters1 ();
+
+		if (Input.GetKeyDown (KeyCode.Alpha3))
+			colliders2 ();
+
+		if (Input.GetKeyDown (KeyCode.Alpha4))
+			shooters2 ();
 
 	}
 
@@ -35,29 +53,70 @@ public class Randomizer : MonoBehaviour {
 		{
 			Debug.Log ("Player One goes first!");
 
-			UUFO.GetComponent<UUFOController>().enabled = !UUFO.GetComponent<UUFOController>().enabled;
-			Shooter2.GetComponent<ShooterController>().enabled = !Shooter2.GetComponent<ShooterController>().enabled;
+			UUFO.GetComponent<UUFOController>().enabled = false;
+			Shooter2.GetComponent<ShooterController2>().enabled = false;
 
 		}
 		else
 		{
 			Debug.Log ("Player Two goes first!");
 
-			UFO.GetComponent<UFOController>().enabled = !UFO.GetComponent<UFOController>().enabled;
-			Shooter1.GetComponent<ShooterController> ().enabled = !Shooter1.GetComponent<ShooterController> ().enabled;
+			UFO.GetComponent<UFOController>().enabled = false;
+			Shooter1.GetComponent<ShooterController> ().enabled = false;
 
 		}
-
 	}
 
-	void nextTurn() 
+	void Begin()
 	{
-			UFO.GetComponent<UFOController>().enabled = !UFO.GetComponent<UFOController>().enabled;
-			Shooter1.GetComponent<ShooterController> ().enabled = !Shooter1.GetComponent<ShooterController> ().enabled;
-			Shooter1.SendMessage ("Reload");
-
-			UUFO.GetComponent<UUFOController>().enabled = !UUFO.GetComponent<UUFOController>().enabled;
-			Shooter2.GetComponent<ShooterController>().enabled = !Shooter2.GetComponent<ShooterController>().enabled;
-			Shooter2.SendMessage ("Reload");
+		UFO.SetActive (true);
+		UUFO.SetActive (true);
+		Shooter1.SetActive (true);
+		Shooter2.SetActive (true);
 	}
+
+	void nextTurn1() 
+	{
+		UFO.GetComponent<UFOController> ().enabled = true;
+		Shooter1.GetComponent<ShooterController> ().enabled = true;
+		Shooter1.SendMessage ("Reload");
+
+		UUFO.GetComponent<UUFOController> ().enabled = false;
+		Shooter2.GetComponent<ShooterController2> ().enabled = false;
+	}
+
+	void nextTurn2()
+	{
+		UFO.GetComponent<UFOController> ().enabled = false;
+		Shooter1.GetComponent<ShooterController> ().enabled = false;
+
+		UUFO.GetComponent<UUFOController> ().enabled = true;
+		Shooter2.GetComponent<ShooterController2> ().enabled = true;
+		Shooter2.SendMessage ("Reload");
+	}
+
+	void colliders1 ()
+	{
+		UFO.GetComponent<UFOController> ().enabled = true;
+		Shooter1.GetComponent<ShooterController> ().enabled = false;
+	}
+
+	void shooters1 ()
+	{
+		UFO.GetComponent<UFOController> ().enabled = false;
+		Shooter1.GetComponent<ShooterController> ().enabled = true;
+	}
+
+	void colliders2 ()
+	{
+		UUFO.GetComponent<UUFOController> ().enabled = true;
+		Shooter2.GetComponent<ShooterController2> ().enabled = false;
+	}
+
+	void shooters2 ()
+	{
+		UUFO.GetComponent<UUFOController> ().enabled = false;
+		Shooter2.GetComponent<ShooterController2> ().enabled = true;
+	}
+
 }

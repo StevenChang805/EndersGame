@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet2 : MonoBehaviour {
 
 	public GameObject UFO;
 	public Collision col1;
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		
+
 	}	
 	// Update is called once per frame
 	void Update () 
@@ -26,7 +26,10 @@ public class Bullet : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
-		if (coll.gameObject.tag == "Player")
+		if (coll.gameObject.tag == "Player1") 
+		{
 			coll.gameObject.SendMessage ("Decrement");
+			Destroy (gameObject);
+		}
 	}
 }
