@@ -29,8 +29,10 @@ public class UFOController : MonoBehaviour {
 	{
 		health -= 20;
 		
-		if (health == 0)
-			gameObject.SetActive(false);
+		if (health == 0) {
+			Debug.Log ("Collider 1 has been destroyed");
+			gameObject.SetActive (false);
+		}
 	}
 
 }

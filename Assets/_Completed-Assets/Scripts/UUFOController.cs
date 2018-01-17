@@ -29,8 +29,10 @@ public class UUFOController : MonoBehaviour {
 	{
 		health -= 20;
 
-		if (health == 0)
-			gameObject.SetActive(false);
+		if (health == 0) {
+			Debug.Log ("Collider 2 has been destroyed");
+			gameObject.SetActive (false);
+		}
 	}
 
 }

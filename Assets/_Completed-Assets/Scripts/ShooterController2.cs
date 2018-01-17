@@ -75,6 +75,7 @@ public class ShooterController2 : MonoBehaviour {
 		myInventory.health--;
 
 		if (myInventory.health == 0) {
+			Debug.Log ("Shooter 2 has been destroyed");
 			gameObject.SetActive (false);
 		}
 	}
